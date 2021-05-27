@@ -27,3 +27,54 @@ other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish, 
 garpike and stingray are also present.'''
 ]
+
+separator01 = '=' * 40
+separator02 = '-' * 40
+
+users = (
+    ('bob', '123'),
+    ('ann', 'pass123'),
+    ('mike', 'password123'),
+    ('liz', 'pass123')
+)
+
+# Request a login name and password from the user
+print(separator01)
+print('LOGIN')
+print(separator02)
+username = input('Username: ')
+password = input('Password: ')
+print(separator01)
+
+# Verify that the information entered matches one of the users
+i = 0
+while i < len(users):
+    if username == users[i][0] and password == users[i][1]:
+        break
+    i += 1
+else:
+    print('Sorry, wrong login, exiting the program!')
+    exit()
+
+print(f'Welcome to the app, {username}')
+print(f'We have {len(TEXTS)} texts to be analyzed.')
+print(separator01)
+
+# Text selection
+choice = input(f"Enter a number btw. 1 and {len(TEXTS)} to select: ")
+print(separator01)
+if choice.isdigit():
+    choice = int(choice) - 1
+    if choice < 0 or choice > 2:
+        print('Sorry, wrong select, exiting the program!')
+        exit()
+else:
+    print('Sorry, wrong select, exiting the program!')
+    exit()
+
+selected_text = TEXTS[choice]
+print('Selected text:')
+print(selected_text)
+print(separator01)
+
+# Text analysis
