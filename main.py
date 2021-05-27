@@ -83,21 +83,21 @@ word_count_upper = 0
 word_count_lower = 0
 num_count = 0
 num_sum = 0
-clear_text = TEXTS[choice].split()
+selected_splited_text = TEXTS[choice].split()
 
-while clear_text:
-    text = clear_text.pop().strip('.,?!')
+while selected_splited_text:
+    striped_string = selected_splited_text.pop().strip('.,?!')
     word_count += 1
-    if text.isalnum() and text.istitle():
+    if striped_string.isalnum() and striped_string.istitle():
         word_count_title += 1
-    elif text.isalpha():
-        if text.isupper():
+    elif striped_string.isalpha():
+        if striped_string.isupper():
             word_count_upper += 1
-        if text.islower():
+        if striped_string.islower():
             word_count_lower += 1
-    elif text.isdigit():
+    elif striped_string.isdigit():
         num_count += 1
-        num_sum += int(text)
+        num_sum += int(striped_string)
 
 print(f'There is/are {word_count} word(s) in the selected text.')
 print(f'There is/are {word_count_title} titlecase word(s).')
@@ -108,3 +108,16 @@ print(f'The sum of all the numbers: {num_sum}')
 print(separator01)
 
 # Graph generation
+selected_splited_text = TEXTS[choice].split()
+
+num_rows = 0
+for string in selected_splited_text:
+    if len(string) > num_rows:
+        num_rows = len(string)
+
+# TODO Vypsat postupne počet slov podle delky a vykreslit graf
+print('LEN | OCCURENCES | NR.')
+for i in range(num_rows):
+    print(i+1)
+
+
