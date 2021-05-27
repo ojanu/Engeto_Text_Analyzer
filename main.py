@@ -28,8 +28,8 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
-separator01 = '=' * 40
-separator02 = '-' * 40
+separator01 = '=' * 50
+separator02 = '-' * 50
 
 users = (
     ('bob', '123'),
@@ -57,7 +57,7 @@ else:
     exit()
 
 print(f'Welcome to the app, {username}')
-print(f'We have {len(TEXTS)} texts to be analyzed.')
+print(f'We have {len(TEXTS)} text(s) to be analyzed.')
 print(separator01)
 
 # Text selection
@@ -72,9 +72,39 @@ else:
     print('Sorry, wrong select, exiting the program!')
     exit()
 
-selected_text = TEXTS[choice]
 print('Selected text:')
-print(selected_text)
+print(TEXTS[choice])
 print(separator01)
 
 # Text analysis
+word_count = 0
+word_count_title = 0
+word_count_upper = 0
+word_count_lower = 0
+num_count = 0
+num_sum = 0
+clear_text = TEXTS[choice].split()
+
+while clear_text:
+    text = clear_text.pop().strip('.,?!')
+    word_count += 1
+    if text.isalnum() and text.istitle():
+        word_count_title += 1
+    elif text.isalpha():
+        if text.isupper():
+            word_count_upper += 1
+        if text.islower():
+            word_count_lower += 1
+    elif text.isdigit():
+        num_count += 1
+        num_sum += int(text)
+
+print(f'There is/are {word_count} word(s) in the selected text.')
+print(f'There is/are {word_count_title} titlecase word(s).')
+print(f'There is/are {word_count_upper} uppercase word(s).')
+print(f'There is/are {word_count_lower} lowercase word(s).')
+print(f'There is/are {num_count} numeric string(s).')
+print(f'The sum of all the numbers: {num_sum}')
+print(separator01)
+
+# Graph generation
