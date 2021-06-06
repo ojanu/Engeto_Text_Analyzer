@@ -125,6 +125,8 @@ for string in selected_splited_text:                # Fill dict by word length
     occur.update({word_length: i+1})
 
 print('LEN|', '  OCCURRENCES  ', '|NR.')            # Print graph
+print(separator02)
 for i in range(num_rows):
     value = occur.pop(i+1)
-    print(f"{i+1}  |{int(value) * '*'}{(17 - (int(value))) * ' '}|{value}")
+    print(f"{i + 1:3}|{int(value) * '*':17}|{value}")
+print(separator01)
