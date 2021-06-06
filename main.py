@@ -112,19 +112,19 @@ selected_splited_text = TEXTS[choice].split()
 occur = {}
 num_rows = 0
 
-for string in selected_splited_text:
-    if len(string) > num_rows:
-        num_rows = len(string)
+for string in selected_splited_text:                # Count of rows for graph
+    if len(string.strip('.,?!')) > num_rows:
+        num_rows = len(string.strip('.,?!'))
 
+for i in range(num_rows):                           # Pre-filling dict depend of number of rows
+    occur.update({i+1: '0'})
+
+for string in selected_splited_text:                # Fill dict by word length
+    word_length = len(string.strip('.,?!'))
+    i = int(occur.get(word_length))
+    occur.update({word_length: i+1})
+
+print('LEN|', '  OCCURRENCES  ', '|NR.')            # Print graph
 for i in range(num_rows):
-    occur.setdefault(i+1)
-
-print(occur)
-
-
-
-
-# TODO Vypsat postupne počet slov podle delky a vykreslit graf
-# print('LEN', 'OCCURRENCES', 'NR.', sep='|')
-# for i in range(num_rows):
-#    print(i + 1, sep='|')
+    value = occur.pop(i+1)
+    print(f"{i+1}  |{int(value) * '*'}{(17 - (int(value))) * ' '}|{value}")
