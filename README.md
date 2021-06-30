@@ -29,11 +29,11 @@ Registrováni jsou následující uživatelé:
 6. Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat četnost různých délek slov v textu. Například takto:
 
 
-    7 * 1
+    '7 * 1
      8 *********** 11
      9 *************** 15
     10 ********* 9
-    11 ********** 10
+    11 ********** 10'
 
 Po spuštění by program měl vypadat zhruba nějak takto:
 
