@@ -1,12 +1,11 @@
-TEXTS = ['''
-Situated about 10 miles west of Kemmerer, 
+TEXTS = ['''Situated . about 10 miles west of Kemmerer, 
 Fossil Butte is a ruggedly impressive 
 topographic feature that rises sharply 
 some 1000 feet above Twin Creek Valley 
 to an elevation of more than 7500 feet 
 above sea level. The butte is located just 
 north of US 30N and the Union Pacific Railroad, 
-which traverse the valley. ''',
+which traverse the valley.''',
 
          '''At the base of Fossil Butte are the bright 
 red, purple, yellow and gray beds of the Wasatch 
@@ -83,7 +82,13 @@ word_count_upper = 0
 word_count_lower = 0
 num_count = 0
 num_sum = 0
-selected_splited_text = TEXTS[choice].split()
+
+clear_selected_text = TEXTS[choice].replace('.', ' ')
+clear_selected_text = clear_selected_text.replace(',', ' ')
+clear_selected_text = clear_selected_text.replace('?', ' ')
+clear_selected_text = clear_selected_text.replace('!', ' ')
+
+selected_splited_text = clear_selected_text.split()
 
 while selected_splited_text:
     striped_string = selected_splited_text.pop().strip('.,?!')
@@ -108,7 +113,7 @@ print(f'The sum of all the numbers: {num_sum}')
 print(separator01)
 
 # Graph generation
-selected_splited_text = TEXTS[choice].split()
+selected_splited_text = clear_selected_text.split()
 occur = {}
 num_rows = 0
 
